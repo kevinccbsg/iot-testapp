@@ -1,0 +1,37 @@
+{
+  "name": "iot-testapp",
+  "version": "1.0.0",
+  "description": "IOT Application frontend test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development DEBUG=IOT-APP:* node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinccbsg/iot-testapp.git"
+  },
+  "keywords": [
+    "node",
+    "iot",
+    "frontend",
+    "react"
+  ],
+  "author": "Kevinccbsg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinccbsg/iot-testapp/issues"
+  },
+  "homepage": "https://github.com/kevinccbsg/iot-testapp#readme",
+  "dependencies": {
+    "app-config": "^1.0.0",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "helmet": "^3.11.0",
+    "unirest": "^0.5.1"
+  }
+}
