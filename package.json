@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "IOT Application frontend test",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development DEBUG=IOT-APP:* node ./bin/www"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevinccbsg/iot-testapp.git"
@@ -24,6 +20,9 @@
   },
   "homepage": "https://github.com/kevinccbsg/iot-testapp#readme",
   "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
     "app-config": "^1.0.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.2",
@@ -33,5 +32,12 @@
     "express-session": "^1.15.6",
     "helmet": "^3.11.0",
     "unirest": "^0.5.1"
+  },
+  "scripts": {
+    "start-server": "NODE_ENV=development DEBUG=IOT-APP:* node ./bin/www",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
