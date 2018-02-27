@@ -1,18 +1,74 @@
 import React, { Component } from 'react';
+import ImagesContainer from './ImagesContainer';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      green: false,
+      amber: false,
+    };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  handleButtonClick(id) {
+    const { green, amber } = this.state;
+    if (id === 'all') {
+      this.setState({ green: !green, amber: !amber });
+    } else if (id === 'green') {
+      this.setState({ green: !green });
+    } else {
+      this.setState({ amber: !amber });
+    }
+  }
+
   render() {
+    const { green, amber } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to RasphMine</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          A application to manage your own Rasphberry Pi
         </p>
+        <h1>Led Section</h1>
+        <p>Click on the options to manage your leds</p> 
+        <div className="button-container">
+          <div className="button-item">
+            <button
+              onClick={() => this.handleButtonClick('green')}
+              className="buttons green"
+            >
+              Green
+            </button>
+          </div>
+          <div className="button-item">
+            <button
+              onClick={() => this.handleButtonClick('amber')}
+              className="buttons amber"
+            >
+              Amber
+            </button>
+          </div>
+          <div className="button-item">
+            <button
+              onClick={() => this.handleButtonClick('all')}
+              className="buttons all"
+            >
+              All
+            </button>
+          </div>
+        </div>
+        <div>
+          <ImagesContainer
+            green={green}
+            amber={amber}
+          />
+        </div>
       </div>
     );
   }

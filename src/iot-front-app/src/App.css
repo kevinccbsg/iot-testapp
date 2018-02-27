@@ -7,6 +7,51 @@
   height: 80px;
 }
 
+.App .led-container {
+  display: flex;
+}
+
+.App .buttons {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.buttons.green {
+  background-color: #4CAF50; /* Green */
+}
+
+.buttons.amber {
+  background-color: #f47c36;
+}
+
+.buttons.all {
+  background-color: #e7e7e7; color: black;
+}
+
+.button-container {
+  display: flex;
+}
+
+.button-container .button-item {
+  margin: 10px 25px;
+}
+
+.led-container .led-item {
+  width: 250px;
+  margin: 10px 20px;
+}
+
+.led-container .led-item img {
+  width: 100%;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
