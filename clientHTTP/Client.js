@@ -1,4 +1,4 @@
-import unirest from 'unirest';
+const unirest = require('unirest');
 
 const response = (status, body) => {
   if (status === 500) return { message: 'Internal server Error', body, status };
@@ -107,4 +107,4 @@ class Client {
   }
 }
 
-export default Client;
+module.exports = Client;

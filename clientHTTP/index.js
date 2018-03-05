@@ -1,5 +1,5 @@
-import Client from './Client';
+const Client = require('./Client');
 
 const createClient = options => new Client(options);
 
-export default createClient;
+module.exports = createClient;
