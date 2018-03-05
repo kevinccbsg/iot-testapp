@@ -6,6 +6,10 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const {
+  oauthController,
+  ensureSession,
+} = require('./controllers/oauthController');
 
 const app = new express();
 
@@ -21,14 +25,14 @@ app.use(expressSession({
   resave: config.config.session.resave,
   saveUninitialized: config.config.session.saveUninitialized,
 }));
-app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/oauth', (req, res) => {
-  
-});
-
-app.get('/', function (req, res) {
+app.get('/', ensureSession, (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/oauth2', oauthController);
+
 
 module.exports = app;
