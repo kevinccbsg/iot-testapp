@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import ImagesContainer from './ImagesContainer';
 import logo from './logo.svg';
 import './App.css';
@@ -16,11 +17,40 @@ class App extends Component {
   handleButtonClick(id) {
     const { green, amber } = this.state;
     if (id === 'all') {
-      this.setState({ green: !green, amber: !amber });
+      axios.post('/api/led/green/', {
+        mode: !green,
+      }).then(() => {
+        this.setState({ green: !green });
+      }).catch((err) => {
+        console.log(err);
+        console.log('Error');
+      });
+      axios.post('/api/led/amber/', {
+        mode: !amber,
+      }).then(() => {
+        this.setState({ amber: !amber });
+      }).catch((err) => {
+        console.log(err);
+        console.log('Error');
+      });
     } else if (id === 'green') {
-      this.setState({ green: !green });
+      axios.post('/api/led/green/', {
+        mode: !green,
+      }).then(() => {
+        this.setState({ green: !green });
+      }).catch((err) => {
+        console.log(err);
+        console.log('Error');
+      });
     } else {
-      this.setState({ amber: !amber });
+      axios.post('/api/led/amber/', {
+        mode: !amber,
+      }).then(() => {
+        this.setState({ amber: !amber });
+      }).catch((err) => {
+        console.log(err);
+        console.log('Error');
+      });
     }
   }
 

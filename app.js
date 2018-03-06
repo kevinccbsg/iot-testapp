@@ -10,6 +10,7 @@ const {
   oauthController,
   ensureSession,
 } = require('./controllers/oauthController');
+const api = require('./router/api');
 
 const app = new express();
 
@@ -26,13 +27,21 @@ app.use(expressSession({
   saveUninitialized: config.config.session.saveUninitialized,
 }));
 
+
 app.get('/', ensureSession, (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.use('/api', api);
+
+app.get('/oauth2', oauthController);
+
+app.get('/403', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/oauth2', oauthController);
 
 
 module.exports = app;
