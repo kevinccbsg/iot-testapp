@@ -6,11 +6,23 @@ const debug = require('debug')('IOT-APP:ledController');
 
 const client = clientHTTP(config.config.kongOptions);
 
+const setToken = (req) => {
+  const contentType = 'application/json';
+  const authorization = `Bearer ${req.session.access_token}`;
+  return {
+    'Content-Type': contentType,
+    Authorization: authorization,
+  };
+};
+
 const ledController = async (req, res) => {
-  const { payload } = req.body;
+  const { mode } = req.body;
   try {
-    const response = await client.postRequest('/ledsapi/leds/17', {
-      mode: payload.mode,
+    const headers = setToken(req);
+    debug(headers);
+    client.setHeaders(headers);
+    const response = await client.postRequest('/ledapi/leds/17', {
+      mode,
     });
     debug('Respuesta correcta cambiado el estado del Led');
     return response(res, 'Updated', 200);
