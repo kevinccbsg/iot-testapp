@@ -12,8 +12,10 @@ const Error403 = () => <h1>Error 403</h1>;
 
 ReactDOM.render((
   <Router>
-    <Route exact path="/" component={App}/>
-    <Route path="/403" component={Error403}/>
+    <div>
+      <Route exact path="/" component={App}/>
+      <Route path="/403" component={Error403}/>
+    </div>
   </Router>
 ), document.getElementById('root'));
 registerServiceWorker();

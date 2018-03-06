@@ -10,6 +10,7 @@ const {
   oauthController,
   ensureSession,
 } = require('./controllers/oauthController');
+const api = require('./router/api');
 
 const app = new express();
 
@@ -29,6 +30,8 @@ app.use(expressSession({
 app.get('/', ensureSession, (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.use('/api', api);
 
 app.use(express.static(path.join(__dirname, 'build')));
 

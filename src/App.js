@@ -17,7 +17,7 @@ class App extends Component {
   handleButtonClick(id) {
     const { green, amber } = this.state;
     if (id === 'all') {
-      axios.post('/led/green/', {
+      axios.post('/api/led/green/', {
         mode: !green,
       }).then(() => {
         this.setState({ green: !green });
@@ -25,7 +25,7 @@ class App extends Component {
         console.log(err);
         console.log('Error');
       });
-      axios.post('/led/amber/', {
+      axios.post('/api/led/amber/', {
         mode: !amber,
       }).then(() => {
         this.setState({ amber: !amber });
@@ -34,7 +34,7 @@ class App extends Component {
         console.log('Error');
       });
     } else if (id === 'green') {
-      axios.post('/led/green/', {
+      axios.post('/api/led/green/', {
         mode: !green,
       }).then(() => {
         this.setState({ green: !green });
@@ -43,7 +43,7 @@ class App extends Component {
         console.log('Error');
       });
     } else {
-      axios.post('/led/amber/', {
+      axios.post('/api/led/amber/', {
         mode: !amber,
       }).then(() => {
         this.setState({ amber: !amber });
