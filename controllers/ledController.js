@@ -21,7 +21,7 @@ const ledController = async (req, res) => {
     const headers = setToken(req);
     debug(headers);
     client.setHeaders(headers);
-    const response = await client.postRequest('/ledapi/leds/17', {
+    const responseLeds = await client.postRequest('/ledapi/ledapi/leds/22', {
       mode,
     });
     debug('Respuesta correcta cambiado el estado del Led');
