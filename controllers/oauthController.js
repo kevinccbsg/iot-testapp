@@ -27,9 +27,8 @@ const oauthController = async (req, res) => {
     const contentType = 'application/json';
     const authorization = `${tokenType} ${accessToken}`;
     const headers = { 'Content-Type': contentType, Authorization: authorization };
-    const codeUser = '50006';
     client.setHeaders(headers);
-    const apiResponse = await client.getRequest(`/userapi/user/${codeUser}`);
+    const apiResponse = await client.getRequest('/userapi/whoiam');
     debug('Obtain user');
     debug(apiResponse);
     sess.user = apiResponse.body;
